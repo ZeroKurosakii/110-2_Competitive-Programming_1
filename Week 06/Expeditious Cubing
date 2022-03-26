@@ -1,0 +1,45 @@
+//Author : ZeroKurosakii
+//張竣傑 @ National Ying Ming Chiao Tung University dep.civil engineering
+//Coding on 2022/3/27
+
+
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int cmp(double a, double b){
+	return a < b;
+}
+int main(void){
+	double d;
+	int t , x , y;
+	int a[5];
+	for(int i = 1 ; i <= 4 ; i++){
+		scanf("%d.%d" , &x , &y);
+			a[i] = x*100 + y;
+	}
+	scanf("%d.%d" , &x , &y);
+	t = 100 * x + y;
+	sort(a+1 , a+5);
+	int kase1 = a[1] + a[2] + a[3];
+	int kase2 = a[2] + a[3] + a[4];
+	if(kase1 - t * 3 > 0){
+		printf("impossible\n");
+	}
+	else if(kase2 - t * 3  <= 0){
+		printf("infinite\n");
+	}
+	else{
+		int ans = t*3 - a[2] - a[3];
+		int res = ans % 100;
+		if(res < 10){
+			printf("%d.0%d" , ans/100 , res);
+		}
+		else{
+			printf("%d.%d\n" , ans/100 , res);
+		}
+	}
+	
+	
+	
+} 
